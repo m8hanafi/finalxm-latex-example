@@ -1,0 +1,230 @@
+\documentclass[12pt]{article}
+\usepackage{fancyhdr, mathptmx, lastpage}
+\usepackage{enumitem}
+\usepackage{graphicx, caption, float}
+\usepackage[a4paper, top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.23cm]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SETUP CODE START HERE %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% HEADER %%
+% set the header and footer
+\fancypagestyle{main}{
+	\pagestyle{fancy}
+	\addtolength{\headheight}{\baselineskip}
+	%\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	%\renewcommand{\subsectionmark}[1]{\markright{#1}}
+%	\rhead{\leftmark\\\rightmark}
+	
+	% set default header 
+	\fancyhf{}
+	\lhead{\textbf{SULIT}\\}
+	\rhead{(\textbf{EN390})}
+	\fancyhead[C]{\raisebox{-4ex}{-\thepage-}}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+% set title page header 
+\fancypagestyle{titlestyle}{
+	\pagestyle{fancy}
+	\fancyhf{}
+	\lhead{\textbf{SULIT}}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+% setting title page input
+%% Semester
+%\def\semester#1{\gdef\@semester{#1}}
+%\def\@semester{\@latex@warning@no@line{No \noexpand\semester given}}
+%
+%%% Sidang
+%\def\sidang#1{\gdef\@sidang{#1}}
+%\def\@sidang{\@latex@warning@no@line{No \noexpand\sidang given}}
+%
+%%% Exam Month Year
+%\def\examMonthYear#1{\gdef\@examMonthYear{#1}}
+%\def\@examMonthYear{\@latex@warning@no@line{No \noexpand\examMonthYear given}}
+%
+%%% Course
+%\def\courseCode#1{\gdef\@courseCode{#1}}
+%\def\@courseCode{\@latex@warning@no@line{No \noexpand\courseCode given}}
+%
+%%% Course Name English
+%\def\courseNameEn#1{\gdef\@courseNameEn{#1}}
+%\def\@courseNameEn{\@latex@warning@no@line{No \noexpand\courseNameEn given}}
+%
+%%% Course Name Malay
+%\def\courseNameBM#1{\gdef\@courseNameBM{#1}}
+%\def\@courseNameBM{\@latex@warning@no@line{No \noexpand\courseNameBM given}}
+
+%% FIGURE %%
+% declare figure extension
+\DeclareGraphicsExtensions{.png,.pdf}
+
+% declare caption
+\captionsetup[figure]{labelsep=newline, labelfont=bf}
+\captionsetup[table]{labelsep=newline, labelfont=bf, position=top}
+
+
+
+%% BODY TEXT %%
+% set no paragraph indentation for the whole document
+\setlength\parindent{0pt}
+
+% setting the command question
+\newcounter{counterquestion}
+\newcommand{\question}{	 
+	\stepcounter{counterquestion}{\textbf{QUESTION \thecounterquestion} \\
+		\fontsize{10pt}{\baselineskip} \textbf{\emph{[SOALAN \thecounterquestion]}} \\
+	}
+}
+
+
+
+% setting the command translation
+\newcommand{\translation}[1]{
+	\fontsize{10pt}{\baselineskip}
+		\emph{#1}
+}
+
+% setting for marks
+\newcommand{\qmarks}[1]{
+	\mbox{}\hfill (#1 Marks/\fontsize{10pt}{\baselineskip}\emph{Markah})
+}
+
+%% ORDERED LIST %%
+% define item label
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+	#2%
+	\def\@currentlabel{#2}%
+	\phantomsection\label{#1}\endgroup
+}
+\makeatother
+
+% setup ordered list
+%\renewcommand{\labelenumi}{(\alph{enumi})}
+%\renewcommand{\labelenumii}{(\roman{enumii})}
+%\renewcommand{\labelenumiii}{(\Alph{enumii})}
+%\renewcommand{\labelenumiv}{(\Roman{enumii})}
+
+% setup ordered list
+\setlist[enumerate,1]{wide = 0pt, labelwidth = 1.5em, labelsep*=0em, leftmargin = \dimexpr\labelwidth + \labelsep\relax, label=(\alph*), ref=(\alph*)}
+\setlist[enumerate,2]{wide = 0pt, labelwidth = 2em, labelsep*=0em, leftmargin = \dimexpr\labelwidth + \labelsep\relax, label=(\roman*), ref=(\roman*)}
+\setlist[enumerate,3]{wide = 0pt, labelwidth = 2em, labelsep*=0em, leftmargin = \dimexpr\labelwidth + \labelsep\relax, label=(\Alph*), ref=(\Alph*)}
+\setlist[enumerate,4]{wide = 0pt, labelwidth = 2em, labelsep*=0em, leftmargin = \dimexpr\labelwidth + \labelsep\relax, label=(\Roman*), ref=(\Roman*)}
+
+% begin enumerate list, default spacing
+\newcommand{\listbegin}{
+	\begin{enumerate}%[leftmargin=0.65cm]
+}	
+
+% begin list, no spacing before the list
+\newcommand{\listbeginx}{
+	\begin{enumerate}[topsep=0pt]
+}	
+		
+% close enumerate		
+\newcommand{\listclose}{
+	\end{enumerate}
+}
+
+%% PAGE NUMBER %%
+% display next page
+\newcommand{\nextpage}{%	
+	\vfill \hfill 
+	\ldots\the\numexpr\value{page}+1\relax/-
+}
+
+%%% SETUP TITLE PAGE %%%
+%\semester{Kedua}
+%\sidang{2017/2018}
+%\examMonthYear{Jun 2018}
+%\courseCode{ENT390}
+%\courseNameEn{Bioinstrumentation 1}
+%\courseNameBM{Bioinstrumentasi 1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SETUP CODE END HERE %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+% cover page
+
+%\begin{titlepage}	
+	\pagestyle{titlestyle}
+	\vspace*{5\baselineskip}
+	\hrule \vspace*{2\baselineskip}
+%	\centering
+	\begin{center}
+		\textbf{UNIVERSITI MALAYSIA PERLIS}\\[\baselineskip]
+		Peperiksaan Akhir Semester Kedua\\
+		Sidang Akademik 2017/2018\\[2\baselineskip]
+		Jun 2018 \\[\baselineskip]
+		\textbf{ENT390 -- Bioinstrumentation 1 }\\
+		\textbf{[Bioinstrumentasi 1]} \\[2\baselineskip]
+		Masa: 3 jam \\[2\baselineskip]
+		\hrule \vspace*{2\baselineskip}
+	\end{center}
+	
+	Please make sure that this question paper has \textbf{SIX (\pageref{LastPage})} printed pages including this front page before you start the examination.
+	
+	\translation{%
+		[Sila pastikan kertas soalan ini mengandungi \textbf{ENAM (\pageref{LastPage})} muka surat yang bercetak termasuk muka hadapan sebelum anda memulakan peperiksaan ini.]
+	}\\
+
+	This question paper has \textbf{TWO (2)} parts. Answer \textbf{all} questions in \mbox{\textbf{Part A}} and \mbox{\textbf{THREE (3)}} question in \mbox{\textbf{Part B}}. Each question contributes 25 marks. 
+		
+	\translation{%
+		[Kertas soalan ini mengandungi \textbf{DUA (2)} bahagian. Jawab \textbf{semua} soalan di \mbox{\textbf{Bahagian A}} dan \mbox{\textbf{TIGA (3)}} soalan di \mbox{\textbf{Bahagian B}}. Setiap soalan menyumbang 25 markah.]
+	}
+	
+	\clearpage
+	
+%\end{titlepage}
+
+\pagestyle{main}
+\vspace*{1mm}
+\setcounter{page}{2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MAIN BODY START HERE %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% setting newpart counter
+\newcounter{counterpart}
+\newcommand{\newpart}{	 	
+	\stepcounter{counterpart}
+	\setcounter{counterquestion}{0}
+	\textbf{\Alph{counterpart}}
+}
+
+% setting the command question. used together with \newpart
+\newcommand{\partQuestion}{	 
+	\stepcounter{counterquestion}{\textbf{QUESTION \Alph{counterpart}\thecounterquestion} \\
+		\fontsize{10pt}{\baselineskip} \textbf{\emph{[SOALAN \Alph{counterpart}\thecounterquestion]}} \\
+	}
+}
+
+% PART A
+\textbf{Part \newpart: Answer all questions} \\
+\textbf{\translation{[Bahagian \Alph{counterpart}: Jawab semua soalan]}}\\
+
+\partQuestion
+%\input{question1}
+
+% PART B
+\textbf{Part \newpart: Answer any THREE (3) questions } \\
+\textbf{\translation{[Bahagian \Alph{counterpart}: Jawab mana-mana TIGA (3) soalan]}}\\
+
+\partQuestion
+%\input{question2}
+%\input{question3}
+%\input{question4}
+%\input{question5}
+
+\vskip 20ex\centering\bfseries -oooOooo-	
+
+\end{document}
