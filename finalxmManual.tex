@@ -334,11 +334,11 @@ The command \verb|\question| will generate output:
 
 Each time you call the \verb|\question| command, the question numbering is being increased by 1. For example, \bigskip
 
-\verb|\question|
+\verb|\question{}|
 
-\verb|\question|
+\verb|\question{}|
 
-\verb|\question|\bigskip
+\verb|\question{}|\bigskip
 
 will generate output:
 
@@ -368,16 +368,16 @@ If you want the question is numbered such as \textbf{QUESTION A1} based on the p
 \newparten{Answer all questions} \\
 \newpartbm{Jawab semua soalan}
 
-\partQuestion
+\partQuestion{}
 
-\partQuestion
+\partQuestion{}
 
 \newparten{Answer any THREE (3) questions} \\
 \newpartbm{Jawab mana-mana TIGA (3) soalan}
 
-\partQuestion
+\partQuestion{}
 
-\partQuestion
+\partQuestion{}
 
 \end{lstlisting}
 
@@ -409,16 +409,16 @@ Note that the \verb|\newparten| command will reset the question numbering. There
 \newparten{Answer all questions} \\
 \newpartbm{Jawab semua soalan}
 
-\partQuestion
+\partQuestion{}
 
-\partQuestion
+\partQuestion{}
 
 \newpartenx{Answer any THREE (3) questions} \\
 \newpartbm{Jawab mana-mana TIGA (3) soalan}
 
-\partQuestion
+\partQuestion{}
 
-\partQuestion
+\partQuestion{}
 \end{lstlisting}
 
 \begin{framed}
@@ -441,7 +441,7 @@ Note that the \verb|\newparten| command will reset the question numbering. There
 	
 \end{framed}
 
-\verb|\newparten| command \textbf{MUST} be declared to enable the \verb|\partQuestion| command, otherwise it will cause errors during compilation. 
+\verb|\newparten| command \textbf{MUST} be declared to enable the \verb|\partQuestion{}| command, otherwise it will cause errors during compilation. 
 
 \subsection{$\backslash$parten, $\backslash$partbm and $\backslash$figurebm}
 To change the default setting \textbf{Part} to \textbf{Section}, \verb|\renewcommand| must be called. The same goes for \verb|\figurebm| that has default value of \textbf{Rajah}. For example, 
@@ -452,7 +452,7 @@ To change the default setting \textbf{Part} to \textbf{Section}, \verb|\renewcom
 \renewcommand{\figurebm}{Gambarajah}
 \end{lstlisting}
 
-will generate \textbf{Section}, \textbf{Seksyen}, and \textbf{Gambarajah}. 
+will generate \textbf{Section}, \textbf{Seksyen}, and \textbf{Gambarajah}. However, option \verb|ppkas| already incorporate the change from \textbf{Part} to \textbf{Section}. 
 
 \subsection{Figure and Table}
 
