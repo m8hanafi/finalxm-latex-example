@@ -1,0 +1,88 @@
+%% This document shows an example of writing exam paper in a single file.
+%%
+\documentclass[12pt]{article}
+%\usepackage{finalxm}			% usually final exam. solid hours without minutes
+\usepackage[minutes]{finalxm}	% show hours & minutes
+%\usepackage[answers]{finalxm}	% answer scheme
+%\usepackage{pdflscape}	% for landscape layout on specific page 
+%
+% Declare graphics path 
+ \graphicspath{{./Figures/}}	% a subfolder named figs
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PERSONALIZED STYLES %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% WITH CAPTION %%
+%% Options availabe for caption. put these before begin{figure/table}
+%% font, labelfont, textfont || use either bf, normalfont
+%% labelsep || use either newline, colon
+%\captionsetup[figure]{labelsep=newline, font=normalfont} 	% all bold
+%\captionsetup[table]{labelsep=newline, font=normalfont}	% all bold
+%\captionsetup[figure]{labelsep=colon} 	% all bold
+%\captionsetup[table]{labelsep=colon}	% all bold
+%\captionsetup[figure]{labelsep=colon, textfont=normalfont} 	% bold Figure
+%\captionsetup[table]{labelsep=colon, textfont=normalfont} 	% bold Table
+%\captionsetup[figure]{labelsep=colon, font=normalfont} 	% all no bold 
+%\captionsetup[table]{labelsep=colon, font=normalfont} 	% all no bold 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SETUP TITLE PAGE %%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\mtefe{Pertengahan} 			% Akhir, Pertengahan 
+\semester{Kedua}		% Pertama, Kedua
+\sidang{2017/2018}		
+\examMonthYear{27 Mac 2018}
+\courseCode{ENT390}
+\courseNameEn{Bioinstrumentation 1}
+\courseNameBM{Bioinstrumentasi 1}
+\pagesbm{TIGA PULUH SATU}	% used if the number of pages exceeds 30
+\durationhr{1 Jam}		% duration of exam
+\makeatletter 
+\if@minutes
+	\durationmin{30 Minit}	% MUST be enabled using \usepackage[minutes]{finalxm}
+\fi 		
+\makeatother		
+
+%\includeonly{Q1CO1PO1, Q2CO2PO2}	%only display selected file(s)
+\begin{document}
+\makecover	% make cover/title page
+
+\instructionen{
+	This question paper has \textbf{TWO (2)} questions. Answer \textbf{all} questions. Each question contributes 25 marks.%
+}
+\instructionbm{%
+	Kertas soalan ini mengandungi \textbf{DUA (2)} soalan. Jawab \textbf{semua} soalan. Setiap soalan menyumbang 25 markah.%
+}
+
+%% Delete from here if require no extra notes 
+\vskip 3em
+\instructionen{
+	Note: This is extra instructions%
+}
+\instructionbm{%
+	Ini adalah arahan tambahan.%
+}
+%% Delete until here if require no extra notes 
+
+\makecoverend	% end cover/title page
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MAIN BODY START HERE %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setmainstyle
+\vskip -2em		% adjust vertical space skip accordingly 
+
+%%%%%%%%%%%%%%%%%%
+%%% QUESTIONS %%%
+%%%%%%%%%%%%%%%%%%
+%TODO PART A
+\input{Q1CO1PO1}	%first question, use \input to avoid blank page after cover page. 
+\include{Q2CO2PO2}
+
+%TODO PART B
+\include{Q3CO3PO2}
+
+%\paperend	%put this command in the last question
+
+\end{document}
