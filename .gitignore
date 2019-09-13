@@ -51,3 +51,6 @@ finalxm Example/AlamSekitarStyle.log
 finalxm Example/AlamSekitarStyle.aux
 finalxm Example/.DS_Store
 .DS_Store
+.git
+.gitattributes
+.gitignore
